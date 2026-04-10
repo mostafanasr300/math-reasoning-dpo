@@ -39,3 +39,6 @@ Thumbs.db
 # Illustrative Data
 API_Walkthrough.md
 PROJECT_REPORT.md
+
+# Utility Scripts
+upload_to_hf.py

@@ -88,7 +88,7 @@ Run the automated launcher:
 *This starts the Flask API (Port 5000) and the Streamlit UI (Port 8501).*
 
 > [!NOTE]
-> **Model Weights**: Due to standard Git size constraints, the multi-gigabyte `output/` checkpoints and `.safetensor` files are intentionally kept out of this repository. For a recruiter/reviewer cloning this, the `scripts/` directory contains the complete end-to-end `trl` pipeline used to generate the SFT models and DPO LoRA adapters locally.
+> **Cloud HuggingFace Weights (Plug & Play)**: While the massive local models are kept out of this repository due to Git size limits, the `flask_api.py` backend is natively hardcoded to my Hugging Face Hub repos (`mostafa-nasr14/Qwen-Math-SFT`). **This means you can clone and run the app out-of-the box!** The matrices will automatically stream from the cloud on the first boot. For reviewers interested in the original alignment methodology, the complete SFT and DPO `trl` training pipelines are enclosed in the `scripts/` folder.
 
 ## 📂 Project Structure
 
@@ -112,3 +112,6 @@ To ensure the application runs smoothly on consumer hardware and provides a high
 * **Backend**: Flask with CORS support.
 * **Frontend**: Streamlit with custom CSS architecture.
 * **Architecture**: Qwen 2.5 (0.5B Parameters).
+
+* **APP UI**
+![screenshot](image.png)

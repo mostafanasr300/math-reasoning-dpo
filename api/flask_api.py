@@ -16,8 +16,9 @@ from peft import PeftModel
 # ---------------------------------------------------------------------------
 # Configuration
 # ---------------------------------------------------------------------------
-BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
-
+#BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+HUGGINGFACE_SFT_MODEL = "mostafa-nasr14/Qwen-Math-SFT"
+HUGGINGFACE_DPO_ADAPTER = "mostafa-nasr14/Qwen-Math-DPO-Adapter"
 MODEL_CONFIGS = {
     "base": {
         "name": "Base (Qwen2.5-0.5B-Instruct)",
@@ -30,7 +31,7 @@ MODEL_CONFIGS = {
     },
     "sft": {
         "name": "SFT (Supervised Fine-Tuned)",
-        "base_model": os.path.join(BASE_DIR, "output", "sft_model_merged"),
+        "base_model": HUGGINGFACE_SFT_MODEL,     #os.path.join(BASE_DIR, "output", "sft_model_merged"),
         "adapter_path": None,
         "description": "Qwen 2.5 0.5B fine-tuned with supervised learning on math reasoning data.",
         "accuracy": 55.6,
@@ -39,7 +40,7 @@ MODEL_CONFIGS = {
     },
     "dpo": {
         "name": "DPO (Direct Preference Optimization)",
-        "base_model": os.path.join(BASE_DIR, "output", "sft_model_merged"),
+        "base_model": HUGGINGFACE_SFT_MODEL, #os.path.join(BASE_DIR, "output", "sft_model_merged"),
         "adapter_path": os.path.join(BASE_DIR, "output", "dpo_model_final"),
         "description": "SFT model further aligned with DPO to prefer high-quality math reasoning.",
         "accuracy": 56.0,

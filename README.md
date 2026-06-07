@@ -14,7 +14,7 @@ The goal of this project is to take a base 0.5B model and transform it into a sp
 The project leverages structured math reasoning data across three distinct stages:
 
 * **1. SFT Dataset (`datasets/sft_dataset`)**:
-  * **Source**: [](https://huggingface.co/datasets/meta-math/MetaMathQA).
+  * **Source**: [(MetaMathQA data)](https://huggingface.co/datasets/meta-math/MetaMathQA).
   * **Type**: Instruction-Response pairs.
   * **Content**: 2,000+ high-quality math problems with detailed, step-by-step "Chain-of-Thought" solutions.
   * **Goal**: Teaching the model the logic and format of mathematical reasoning.
@@ -28,7 +28,7 @@ The project leverages structured math reasoning data across three distinct stage
         ```
 
 * **2. DPO Dataset (`datasets/dpo_dataset`)**:
-  * **Source**: [](https://huggingface.co/datasets/argilla/distilabel-math-preference-dpo).
+  * **Source**: [(distilabel-math-preference-dpo)](https://huggingface.co/datasets/argilla/distilabel-math-preference-dpo).
   * **Type**: Preference pairs (Chosen vs. Rejected).
   * **Content**: Contrastive examples where the model's own incorrect logic was paired against corrected ground-truth reasoning paths.
   * **Goal**: Aligning the model to reject common logical errors and prefer precise calculations.

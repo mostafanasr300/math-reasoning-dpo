@@ -455,7 +455,9 @@ if user_input:
         meta = MODEL_META[model_key]
 
         with st.spinner(f"{meta['icon']} {meta['name']} is thinking..."):
-            history_copy = st.session_state.chat_history[:-1] # Remove just-appended user message from context buffer
+            #history_copy = st.session_state.chat_history[:-1] # Remove just-appended user message from context buffer
+             #keeps only the last 10 messages:
+            history_copy = st.session_state.chat_history[-11:-1]
             result = call_chat(model_key, user_input, history_copy, max_tokens)
 
         if "error" in result:
@@ -476,7 +478,8 @@ if user_input:
 
     else:  # Compare All
         with st.spinner("Generating from all three models..."):
-            history_copy = st.session_state.chat_history[:-1]
+            
+            history_copy = st.session_state.chat_history[-11:-1]
             result = call_compare(user_input, history_copy, max_tokens)
 
         if "error" in result:
